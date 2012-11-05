@@ -50,7 +50,7 @@ function through (write, end) {
   stream.on('end', function () {
     stream.readable = false
     if(!stream.writable)
-      process.nextTick(function () {
+      setTimeout(function () {
         stream.destroy()
       })
   })
